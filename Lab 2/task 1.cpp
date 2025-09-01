@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
-int main() {
+int main(){
     int size;
-    cout << "Enter the size of the array: ";
+    cout << "Enter the size of the array:";
     cin >> size;
     int* array = new int[size];
-    for (int i = 0; i < size; i++) {
+    for(int i = 0; i < size; i++){
         array[i] = 0;
     }
     char choice;
@@ -13,9 +13,10 @@ int main() {
         int index, value;
         cout << "Enter index (0 - " << size - 1 << "): ";
         cin >> index;
-        if(index < 0 || index >= size) {
+        if(index < 0 || index >= size){
             cout << "Invald index!" << endl;
-        } else {
+        }
+        else{
             cout << "Enter value to assign at index " << index << ": ";
             cin >> value;
             array[index] = value;
