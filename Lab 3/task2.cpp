@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-struct Node{
+class Node{
+public:
     int data;
     Node* next;
     Node(int val) : data(val), next(nullptr) {}
@@ -8,8 +9,8 @@ struct Node{
 class LinkedList{
 public:
     Node* head;
-    LinkedList():head(nullptr) {}
-
+    LinkedList() : head(nullptr) {
+    }
     void insert(int val){
         Node* newNode = new Node(val);
         if(!head){
@@ -21,7 +22,6 @@ public:
             temp = temp->next;
         temp->next = newNode;
     }
-
     void display(){
         Node* temp = head;
         while(temp){
@@ -31,25 +31,26 @@ public:
         cout << endl;
     }
     static Node* mergeSorted(Node* l1, Node* l2){
-        if (!l1) return l2;
-        if (!l2) return l1;
+        if(!l1) return l2;
+        if(!l2) return l1;
         Node* mergedHead = nullptr;
         if(l1->data < l2->data){
             mergedHead = l1;
             l1 = l1->next;
         }
-        else{
+        else
+        {
             mergedHead = l2;
             l2 = l2->next;
         }
         Node* curr = mergedHead;
         while(l1 && l2){
-            if(l1->data < l2->data)
-            {
+            if(l1->data < l2->data){
                 curr->next = l1;
                 l1 = l1->next;
             }
-            else{
+            else
+            {
                 curr->next = l2;
                 l2 = l2->next;
             }
@@ -63,16 +64,16 @@ public:
 int main(){
     LinkedList listA, listB;
     int n1, n2, val;
-    cout << "Enter number of elementsin List A: ";
+    cout << "Enter number of elements in List A: ";
     cin >> n1;
     cout << "Enter elements of List A (sorted): ";
     for(int i = 0; i < n1; i++){
         cin >> val;
         listA.insert(val);
     }
-    cout << "Enter numb of elemnts in List B: ";
+    cout << "Enter nmbr of elements in List B: ";
     cin >> n2;
-    cout << "Enter elements ofList B (sorted): ";
+    cout << "Enter elements of List B (sorted): ";
     for(int i = 0; i < n2; i++){
         cin >> val;
         listB.insert(val);
