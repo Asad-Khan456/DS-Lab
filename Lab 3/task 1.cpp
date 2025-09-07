@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-struct Node{
+class Node{
+public:
     int data;
     Node* next;
     Node(int val) : data(val), next(nullptr) {}
@@ -12,8 +13,7 @@ private:
         Node* prev = nullptr;
         Node* curr = head;
         Node* next = nullptr;
-        while(curr != nullptr)
-        {
+        while(curr != nullptr){
             next = curr->next;
             curr->next = prev;
             prev = curr;
@@ -22,7 +22,8 @@ private:
         return prev;
     }
 public:
-    LinkedList() : head(nullptr){}
+    LinkedList() : head(nullptr) {    
+    }
     void insert(int val){
         Node* newNode = new Node(val);
         if(!head)
@@ -31,13 +32,12 @@ public:
             return;
         }
         Node* temp = head;
-        while(temp->next)
+        while (temp->next)
             temp = temp->next;
         temp->next = newNode;
     }
-
     bool isPalindrome(){
-        if (!head || !head->next) return true;
+        if(!head || !head->next) return true;
         Node* slow = head;
         Node* fast = head;
         while(fast->next && fast->next->next){
@@ -71,7 +71,7 @@ public:
 int main(){
     LinkedList list;
     int n, val;
-    cout << "Enter number of elements: ";
+    cout << "Enter no of elements: ";
     cin >> n;
     cout << "Enter elements: ";
     for(int i = 0; i < n; i++){
@@ -80,11 +80,9 @@ int main(){
     }
     cout << "Linked List: ";
     list.display();
-    if(list.isPalindrome()){
+    if(list.isPalindrome())
         cout << "true" << endl;
-    }
     else
         cout << "false" << endl;
-
     return 0;
 }
