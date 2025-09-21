@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// Direct Recursion
 void printNumbers(int n) {
     if (n == 0) {
         return;
@@ -10,7 +9,6 @@ void printNumbers(int n) {
     printNumbers(n - 1);
 }
 
-// Indirect Recursion
 void functionB(int n); 
 
 void functionA(int n) {
