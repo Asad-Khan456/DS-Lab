@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-const int N = 5; // Maze size
+const int N = 5; 
 
 bool isSafe(int maze[N][N], int x, int y, bool visited[N][N]) {
     return (x >= 0 && x < N && y >= 0 && y < N && 
@@ -18,19 +18,14 @@ bool solveMazeUtil(int maze[N][N], int x, int y, int sol[N][N], bool visited[N][
         visited[x][y] = true;
         sol[x][y] = 1;
 
-        // Move Down
         if (solveMazeUtil(maze, x + 1, y, sol, visited)) return true;
 
-        // Move Right
         if (solveMazeUtil(maze, x, y + 1, sol, visited)) return true;
 
-        // Move Up
         if (solveMazeUtil(maze, x - 1, y, sol, visited)) return true;
 
-        // Move Left
         if (solveMazeUtil(maze, x, y - 1, sol, visited)) return true;
 
-        // Backtrack
         sol[x][y] = 0;
         visited[x][y] = false;
         return false;
