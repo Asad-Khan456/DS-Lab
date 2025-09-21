@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// Tail Recursion
 int sumTail(int n, int total) {
     if (n == 0) {
         return total;
@@ -9,7 +8,6 @@ int sumTail(int n, int total) {
     return sumTail(n - 1, total + n);
 }
 
-// Non-Tail Recursion
 int sumNonTail(int n) {
     if (n == 0) {
         return 0;
